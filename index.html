@@ -27,6 +27,7 @@
             padding: 1rem 2rem;
             background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
             color: white;
+            position: relative;
         }
 
         .header .ownername {
@@ -44,6 +45,35 @@
 
         .header a:hover {
             color: #ff6347;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 5px;
+            background-color: white;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu a {
+            margin-left: 1rem;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
         }
 
         .social-icons {
@@ -79,7 +109,7 @@
             }
 
             .header nav {
-                display: flex;
+                display: none;
                 flex-direction: column;
                 gap: 10px;
                 width: 100%;
@@ -90,6 +120,16 @@
             .header a {
                 font-size: 1.1rem;
                 padding: 0.5rem 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .menu.active {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
 
             .social-icons {
@@ -125,7 +165,12 @@
 <body>
     <div class="header">
         <div class="ownername">Coker Mololuwa</div>
-        <nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav class="menu">
             <a href="index.html">HOME</a>
             <a href="#" onclick="showAlert()">VIDEOS</a>
             <a href="#" onclick="showAlerts()">TOUR</a>
@@ -148,6 +193,11 @@
 
         function showAlerts() {
             alert("No Tours At The Moment.");
+        }
+
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
         }
     </script>
 </body>
