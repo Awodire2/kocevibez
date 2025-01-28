@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('coker.jpg'); /* Replace with your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+            color: white;
+        }
+
+        .header .ownername {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .header a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1rem;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .header a:hover {
+            color: #ff6347;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-icons a:hover {
+            color: #ff6347;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="ownername">Coker Mololuwa</div>
+        <nav>
+            <a href="#">HOME</a>
+            <a href="#" onclick="showAlert()">VIDEOS</a>
+            <a href="#" onclick="showAlerts()">TOUR</a>
+            <a href="music.html">MUSIC</a>
+        </nav>
+    </div>
+
+    <div class="social-icons">
+        <a href="https://www.facebook.com/yourprofile" target="_blank" rel="noopener noreferrer" class="fab fa-facebook-f"></a>
+        <a href="https://www.twitter.com/yourprofile" target="_blank" rel="noopener noreferrer" class="fab fa-twitter"></a>
+        <a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" class="fab fa-instagram"></a>
+        <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" class="fab fa-linkedin-in"></a>
+        <a href="https://www.tiktok.com/@yourprofile" target="_blank" rel="noopener noreferrer" class="fab fa-tiktok"></a>
+    </div>
+    <script src="script.js"></script>
+
+    <script>
+
+        function showAlert() {
+
+            alert("Nothing here yet.");
+
+        }
+
+        function showAlerts() {
+
+           alert("No Tours At The Moment.");
+
+        }
+
+    </script>
+</body>
+
+</html>

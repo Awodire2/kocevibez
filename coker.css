@@ -1,0 +1,21 @@
+body {
+    background-color: blue;
+}
+
+.ownername {
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+}
+.header {
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: red;
+    justify-content: space-between;
+    padding: 5px;
+}
