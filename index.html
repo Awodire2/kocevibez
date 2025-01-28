@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Godwin Akpan</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <!-- Lightbox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General styling */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            z-index: 20;
+            color: white;
+        }
+
+        .header-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            line-height: 1.6em;
+            font-weight: 400;
+            letter-spacing: 1px;
+            font-style: normal;
+            font-family: "Montserrat", serif;
+        }
+
+        .header-nav a:hover {
+            text-decoration: underline;
+        }
+
+
+        header .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        header h1 a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .gallery {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        /* Artwork images */
+        .artwork img {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+            display: none;
+        }
+
+        /* Navigation areas */
+        .hover-area {
+            position: fixed;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        .hover-area.left {
+            left: 0;
+        }
+
+        .hover-area.right {
+            right: 0;
+        }
+
+        .hover-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            z-index: 15;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0);
+            font-size: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .hover-area:hover .hover-nav {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .hover-nav.prev {
+            left: 10px;
+        }
+
+        .hover-nav.next {
+            right: 10px;
+        }
+
+        /* Info box at bottom-left */
+        .info {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6);
+            /* Background added */
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Dancing Script', cursive;
+            z-index: 20;
+            display: none;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: transparent;
+            color: white;
+            padding: 16px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            line-height: 1.6em;
+            font-weight: 400;
+            letter-spacing: 1px;
+            font-style: normal;
+            font-family: "Montserrat", serif;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-icon {
+            width: 35px;
+            height: 35px;
+            margin-right: 10px;
+        }
+
+
+        #dropbtn:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        .social-icons a {
+            font-size: 20px;
+            transition: transform 0.2s;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1);
+            text-decoration: none;
+        }
+
+        /* Setting Brand Colors */
+        .social-icons a.fa-facebook-f {
+            color: #3b5998;
+        }
+
+        .social-icons a.fa-twitter {
+            color: #1da1f2;
+        }
+
+        .social-icons a.fa-instagram {
+            color: #e1306c;
+        }
+
+        .social-icons a.fa-linkedin-in {
+            color: #0077b5;
+        }
+
+        .social-icons a.fa-tiktok {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="bigbadboss.jpg" alt="Godwin Akpan Logo">
+                </a>
+            </div>
+            <h1>
+                <a href="index.html">Godwin Akpan</a>
+            </h1>
+        </div>
+        <div class="header-center">
+            <nav class="header-nav">
+                <a href="quicktour.html">QUICK TOUR</a>
+                <a href="bookcover.html">BOOK COVER ILLUSTRATION</a>
+
+                <div class="dropdown">
+                    <button class="dropbtn" id="dropbtn">ARTWORK</button>
+                    <div class="dropdown-content">
+                        <a href="iwaju.html"> <img src="bode.jpg" alt="Iwaju" class="dropdown-icon">Iwaju</a>
+                        <a href="iyanu.html"><img src="olori.jpg" alt="Olori" class="dropdown-icon">Iyanu</a>
+                        <a href="kizazimoto.html"><img src="eagle.jpg" alt="Eagle" class="dropdown-icon">Kizazi Moto</a>
+                        <a href="malika.html"><img src="abdul.jpg" alt="Abdul" class="dropdown-icon">Malika</a>
+                        <a href="talesofkenzara_zau.html"><img src="amandla.jpg" alt="Amandla"
+                                class="dropdown-icon">Tales of Kenzara_Zau</a>
+                        <a href="thewagaduchronicle.html"><img src="emere.jpg" alt="Emere" class="dropdown-icon">The
+                            Wagadu Chronicles</a>
+                    </div>
+                </div>
+                <a href="personal.html">PERSONAL ARTWORK</a>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">SHOP</a>
+            </nav>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/yourprofile" target="_blank" rel="noopener noreferrer"
+                class="fab fa-facebook-f"></a>
+            <a href="https://www.twitter.com/yourprofile" target="_blank" rel="noopener noreferrer"
+                class="fab fa-twitter"></a>
+            <a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener noreferrer"
+                class="fab fa-instagram"></a>
+            <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer"
+                class="fab fa-linkedin-in"></a>
+            <a href="https://www.tiktok/yourprofile" target="_blank" rel="noopener noreferrer"
+                class="fab fa-tiktok"></a>
+        </div>
+    </header>
+    <div class="gallery">
+        <div class="artwork">
+            <img src="adia.jpg" alt="Image 1">
+            <div class="info">Adia - Book Cover</div>
+        </div>
+        <div class="artwork">
+            <img src="amari.jpg" alt="Image 2">
+            <div class="info">Amari - Concept Art</div>
+        </div>
+        <div class="artwork">
+            <img src="best.jpg" alt="Image 3">
+            <div class="info">Best - Portrait Illustration</div>
+        </div>
+        <div class="artwork">
+            <img src="under.jpg" alt="Image 4">
+            <div class="info">Under - Environment Design</div>
+        </div>
+        <!-- Add more artworks as needed -->
+
+        <!-- Hover areas for navigation -->
+        <div class="hover-area left" onclick="navigate(-1)">
+            <div class="hover-nav prev">&#10094;</div>
+        </div>
+        <div class="hover-area right" onclick="navigate(1)">
+            <div class="hover-nav next">&#10095;</div>
+        </div>
+    </div>
+    <script>
+        // JavaScript for navigation and auto-slide
+        let currentIndex = 0;
+        const artworks = document.querySelectorAll(".artwork img");
+        const infos = document.querySelectorAll(".artwork .info");
+
+        function showImage(index) {
+            // Hide all images and info
+            artworks.forEach((img, i) => {
+                img.style.display = i === index ? "block" : "none";
+                infos[i].style.display = i === index ? "block" : "none";
+            });
+        }
+
+        function navigate(direction) {
+            currentIndex = (currentIndex + direction + artworks.length) % artworks.length;
+            showImage(currentIndex);
+        }
+
+        // Initialize the first image
+        showImage(currentIndex);
+
+        // Auto-slide functionality
+        setInterval(() => {
+            navigate(1); // Move to the next image every 3 seconds
+        }, 5000);
+    </script>
+
+</body>
+
+</html>
