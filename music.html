@@ -90,7 +90,6 @@
             </audio>
         </div>
 
-        <!-- Add more tracks in this format -->
         <div class="audio-track">
             <div class="audio-title">Glory or Death</div>
             <div class="audio-meta">Artist: Koce</div>
@@ -155,6 +154,22 @@
         </div>
 
     </div>
+
+    <script>
+        // Select all audio elements
+        const audios = document.querySelectorAll('audio');
+
+        audios.forEach(audio => {
+            audio.addEventListener('play', function() {
+                // Pause all other audios when one is played
+                audios.forEach(otherAudio => {
+                    if (otherAudio !== audio) {
+                        otherAudio.pause();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
